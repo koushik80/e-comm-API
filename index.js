@@ -11,6 +11,9 @@ mongoose.connect(process.env.MONGO_URL)
         console.log(err);
     });
 
+app.get("/api/test", () => {
+    console.log("Test is successful!")
+});
 
 app.listen(process.env.PORT || 8000, () => {
     console.log("Backend server is on fire!");
