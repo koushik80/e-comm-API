@@ -27,7 +27,7 @@ router.post("/register", async (req, res) => {
 //LOGIN
 
 router.post('/login', async (req, res) => {
-    try {
+    try{
         const user = await User.findOne(
             {
                 userName: req.body.user_name
@@ -40,6 +40,8 @@ router.post('/login', async (req, res) => {
             user.password,
             process.env.PASS_SEC
         );
+
+
         const originalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
 
         const inputPassword = req.body.password;
@@ -58,11 +60,11 @@ router.post('/login', async (req, res) => {
 
         const { password, ...others } = user._doc;
         res.status(200).json({...others, accessToken});
-    
-    } catch (err) {
+
+    }catch(err){
         res.status(500).json(err);
     }
-});
 
+});
 
 module.exports = router;
