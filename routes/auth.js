@@ -31,6 +31,11 @@ router.post('/login', async (req, res) => {
             {
                 userName: req.body.user_name
             });
+        const hashedPassword = CryptoJS.AES.decrypt(
+            user.password,
+            process.env.PASS_SEC
+        );
+        const password = hashedPassword.toString();
     } catch (err) {
         res.status(500).json(err);
     }
