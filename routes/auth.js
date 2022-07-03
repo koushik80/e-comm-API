@@ -9,10 +9,10 @@ router.post("/register", async (req, res) => {
         password: req.body.password,
     });
     try {
-    const savedUser = await newUser.save();
-    console.log(savedUser);
-    } catch (err) {
-        console.log(err);
+        const savedUser = await newUser.save();
+        res.status(201).json(savedUser);
+    }   catch (err) {
+        res.status(500).json(err);
     }
 
 });
