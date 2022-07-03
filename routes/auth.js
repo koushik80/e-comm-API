@@ -26,12 +26,15 @@ router.post("/register", async (req, res) => {
 //LOGIN
 
 router.post('/login', async (req, res) => {
-    try{
+    try {
         const user = await User.findOne(
             {
                 userName: req.body.user_name
-            }
-        );
+            });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 
 
