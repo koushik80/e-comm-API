@@ -1,8 +1,10 @@
 const User = require("../models/User");
 const {
     verifyToken,
-    verifyTokenAndAuthorization,verifyTokenAndAdmin,
+    verifyTokenAndAuthorization,
+    verifyTokenAndAdmin,
 } = require("./verifyToken");
+
 const router = require("express").Router();
 
 //UPDATE
@@ -66,5 +68,7 @@ router.get("/", verifyTokenAndAdmin, async (req, res) => {
 //GET USER STATS
 
 router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
+    const date = new Date();
+    const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
 });
 module.exports = router;
