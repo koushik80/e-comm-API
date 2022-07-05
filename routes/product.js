@@ -80,8 +80,8 @@ router.get("/", async (req, res) => {
       products = await Product.find();
     }
 
-  } catch {
-    
+  } catch (err) {
+    res.status(500).json(err);
   }
 
 });
