@@ -59,6 +59,18 @@ router.get("/find/:id", async (req, res) => {
   }
 });
 
+//GET ALL PRODUCTS
+
+router.get("/", (req, res) => {
+
+  try {
+
+  } catch {
+    
+  }
+
+});
+
 
 
 module.exports = router;
