@@ -9,11 +9,11 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
     const newProduct = new Product(req.body);
 
     try {
-        
-    } catch (err) {
-
+        const savedProduct = await newProduct.save();
+        res.status(200).json(savedProduct);
+    }   catch (err) {
+        res.status(500).json(err);
     }
-
 });
 
 
